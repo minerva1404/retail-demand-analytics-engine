@@ -1,11 +1,27 @@
-## Summary:
-•	Simulates continuous user interaction events (view, cart, purchase) for 10,000 users and 1,000 products, streaming to a Kafka topic for analytics pipelines.\
-•	Weighted product selection with category, brand, price, and custom weight to mimic realistic user-product engagement.\
-•	Generates rich event payloads including user_id, product_id, category, brand, quantity, price, revenue, and timestamp for downstream ETL processing.\
-•	Controls event throughput (EVENTS_PER_SECOND) with accurate timing, ensuring steady streaming for Bronze-Silver-Gold data processing and KPI monitoring.
+# Event Generator
 
+### Purpose
 
-## Code:
+The Event Generator simulates continuous customer activity across an e-commerce platform by generating realistic retail interaction events. It models the complete customer journey—including product views, cart additions, and purchases—to create a steady stream of transactional data for real-time analytics.
+
+A synthetic product catalog containing categories, brands, pricing, and weighted popularity is used to emulate realistic shopping behavior. Generated events are serialized as JSON and continuously published to the Apache Kafka topic flash_sale_events, providing the raw event stream that drives the downstream ETL pipeline.
+
+### Key Responsibilities
+
+* Simulates continuous customer interactions including view, cart, and purchase events.
+* Generates activity for 10,000 users interacting with a catalog of 1,000 products.
+* Produces realistic event payloads containing user, product, category, brand, quantity, price, revenue, and timestamp information.
+* Implements weighted product selection to mimic varying product popularity and customer purchasing behavior.
+* Serializes events as JSON and streams them continuously to the flash_sale_events Kafka topic.
+* Maintains a configurable event throughput for consistent real-time streaming and downstream ETL processing.
+
+### Pipeline Role
+
+The Event Generator serves as the primary data ingestion source for the retail analytics pipeline. By continuously producing realistic customer interaction events, it establishes a stable stream of transactional data that forms the foundation of the Bronze layer and enables downstream cleansing, transformation, KPI computation, and business reporting.
+
+--- 
+
+## Source Code:
 ```python
 import json
 import random
@@ -97,3 +113,7 @@ try:
 except KeyboardInterrupt:
     print("\nStopped.")
 ```
+---
+
+## Console Output:
+<img width="1920" height="1080" alt="Screenshot (48)" src="https://github.com/user-attachments/assets/357b40d3-bd87-42de-acd7-1253ccaa59cc" />
