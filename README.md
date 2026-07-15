@@ -10,7 +10,7 @@ The pipeline enables real-time business intelligence by computing sales KPIs, cu
 
 ## 📑 Table of Contents
 
-- [ Project Overview](#project-overview)
+- [ Project Overview](#-project-overview)
 - [ Solution Architecture](#️-solution-architecture)
 - [ Key Features](#-key-features)
 - [ Project Highlights](#-project-highlights)
@@ -67,14 +67,15 @@ The pipeline follows a modern streaming architecture.
 
 ## 📊 Project Highlights
 
-Metric	Value
-Daily Events Processed	10K+
-Streaming Framework	Apache Kafka + Spark Structured Streaming
-Storage	MySQL
-Pipeline Architecture	Bronze → Silver → Gold
-Processing Model	Streaming Micro-Batches
-Dashboard	Power BI
-Domain	Retail Analytics
+| Metric |	Value |
+|--------|-------|
+| Daily Events Processed |	10K+ |
+| Streaming Framework |	Apache Kafka + Spark Structured Streaming |
+| Storage |	MySQL |
+| Pipeline Architecture |	Bronze → Silver → Gold |
+| Processing Model |	Streaming Micro-Batches |
+| Dashboard |	Power BI |
+| Domain |	Retail Analytics |
 
 ---
 
@@ -133,22 +134,22 @@ These insights help optimize inventory allocation, promotional campaigns, and cu
 
 ## 📂 Repository Structure
 
-retail-demand-analytics-engine/
-├── producers/
-│   ├── event_generator.py
-│   └── flash_sale_generator.py
-│
-├── streaming/
-│   └── spark_stream_processor.py
-│
-├── sql/
-│   ├── flash_sale_events.sql
-│   ├── flash_sale_silver.sql
-│   └── flash_sale_gold.sql
-│
-├── dashboard/
-│   └── retail_analytics.pbix
-│
+retail-demand-analytics-engine/\
+├── producers/\
+│   ├── event_generator.py\
+│   └── flash_sale_generator.py\
+│\
+├── streaming/\
+│   └── spark_stream_processor.py\
+│\
+├── sql/\
+│   ├── flash_sale_events.sql\
+│   ├── flash_sale_silver.sql\
+│   └── flash_sale_gold.sql\
+│\
+├── dashboard/\
+│   └── retail_analytics.pbix\
+│\
 └── README.md
 
 ---
@@ -197,38 +198,38 @@ These tables are optimized for BI dashboards and executive reporting.
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
-
+```
 git clone <repository-url>
 cd retail-demand-analytics-engine
-
+```
 ### 2. Create a Virtual Environment
-
+```
 python -m venv venv
-
+```
 Linux/macOS
-
+```
 source venv/bin/activate
-
+```
 Windows
-
+```
 venv\Scripts\activate
-
+```
 ### 3. Install Dependencies
-
+```
 pip install -r requirements.txt
-
+```
 ### 4. Configure Apache Kafka
 
 Create the following Kafka topic:
-
+```
 flash_sale_events
-
+```
 ### 5. Configure MySQL
 
 Create the database:
-
+```
 flash_sale_db
-
+```
 Execute:
 
 * flash_sale_events.sql
@@ -240,32 +241,32 @@ Execute:
 ## ▶️ Running the Pipeline
 
 ### Step 1 — Start Kafka Producers
-
+```
 python producers/event_generator.py
 python producers/flash_sale_generator.py
-
+```
 These continuously generate retail user interactions and flash sale traffic.
 
 ### Step 2 — Start Streaming Processor
-
+```
 python streaming/spark_stream_processor.py
-
+```
 Consumes Kafka events, validates records, computes revenue, and writes Bronze data into MySQL.
 
 ### Step 3 — Build Silver Layer
 
 Execute
-
+```
 flash_sale_silver.sql
-
+```
 Creates validated and standardized analytical tables.
 
 ### Step 4 — Generate Gold Layer
 
 Execute
-
+```
 flash_sale_gold.sql
-
+```
 Computes retail KPIs and business metrics.
 
 ### Step 5 — Open Dashboard
